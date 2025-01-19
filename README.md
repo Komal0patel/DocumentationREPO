@@ -1,3 +1,3 @@
 # Repo
-Author- Komal patel
+Author- Komal patel<br>
 learning basics of git
