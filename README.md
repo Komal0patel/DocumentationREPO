@@ -1,4 +1,4 @@
-#INTERNSHIP DOCUMENTATION
+# INTERNSHIP DOCUMENTATION
 
 ## Introduction
 This documentation outlines my journey of learning and implementing Camunda for processing kidney test results and calculating kidney scores using DMN (Decision Model and Notation) tables. The project involves integrating Camunda with external applications to automate decision-making based on clinical guidelines.
