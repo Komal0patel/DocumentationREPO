@@ -17,23 +17,23 @@ After understanding DMN, I designed individual decision tables for each kidney t
 
 ### 1. Creatinine DMN Table
 This table evaluates creatinine levels based on age and gender to determine if they fall within normal, borderline, or abnormal ranges.
-- **Image:** ![Creatinine DMN Table](Screenshots/Screenshot%202025-03-12%20150141.png)
+- **Image:** ![Creatinine DMN Table](Screenshot%202025-03-12%20150141.png)
 
 ### 2. BUN (Blood Urea Nitrogen) DMN Table
 The BUN table checks urea nitrogen levels in the blood and classifies them based on standard thresholds.
-- **Image:** ![BUN DMN Table](Screenshots/Screenshot%202025-03-12%20150151.png)
+- **Image:** ![BUN DMN Table](Screenshot%202025-03-12%20150151.png)
 
 ### 3. GFR (Glomerular Filtration Rate) DMN Table
 GFR is an important indicator of kidney function. This table calculates GFR based on input parameters and determines the stage of kidney function.
-- **Image:** ![GFR DMN Table](Screenshots/Screenshot%202025-03-12%20150201.png)
+- **Image:** ![GFR DMN Table](Screenshot%202025-03-12%20150201.png)
 
 ### 4. UACR (Urine Albumin-to-Creatinine Ratio) DMN Table
 This table evaluates the albumin-to-creatinine ratio in urine to assess kidney damage and classify it into normal, microalbuminuria, or macroalbuminuria.
-- **Image:** ![UACR DMN Table](Screenshots/Screenshot%202025-03-12%20150213.png)
+- **Image:** ![UACR DMN Table](Screenshot%202025-03-12%20150213.png)
 
 ### 5. Electrolytes (Potassium, Sodium) DMN Table
 Electrolyte balance is crucial for kidney function. This table checks potassium and sodium levels to determine if they are within normal ranges.
-- **Image:** ![Electrolytes DMN Table](Screenshots/Screenshot%202025-03-12%20150224.png)
+- **Image:** ![Electrolytes DMN Table](Screenshot%202025-03-12%20150224.png)
 
 ## Deployment and Testing
 I successfully deployed a single DMN table in Camunda and tested it using Postman. Then, I deployed all individual DMN tables directly from Camunda Modeler to Cockpit and tested the results.
