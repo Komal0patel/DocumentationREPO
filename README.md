@@ -13,28 +13,113 @@ We researched DMN and realized that we could define decision logic using tables,
 - Deploy DMN tables to Camunda Cockpit.
 - Test decision tables using Postman.
 
-## Implementing DMN for Kidney Test Results
-After understanding DMN, we designed individual decision tables for each kidney test based on standard clinical guidelines:
+## Understanding DMN XML Structure
+Each DMN table is stored as an XML file, defining the decision logic, input/output parameters, and rules. The common structure across all five DMN XML files includes:
+- **Definitions Element (`<definitions>`)**: Contains all DMN elements and their namespaces.
+- **Decision Element (`<decision>`)**: Defines the DMN table, including input and output parameters.
+- **InputData Element (`<inputData>`)**: Specifies input variables like test values.
+- **DecisionTable Element (`<decisionTable>`)**: Contains the rules and logic to determine outcomes.
+- **Rule Element (`<rule>`)**: Defines conditions and corresponding outputs for each test.
 
-### 1. Creatinine DMN Table
-The **Creatinine DMN Table** evaluates creatinine levels and determines whether the levels are normal, mild risk, moderate risk, or severe risk, aiding in kidney function assessment.
-- **Image:** ![Creatinine DMN Table](createnine.png)
+### Breakdown of DMN XML for Each Table
+Below is an explanation of the key XML elements for each kidney test DMN table:
 
-### 2. BUN (Blood Urea Nitrogen) DMN Table
-The **BUN DMN Table** assesses blood urea nitrogen levels. It classifies the results as low protein diet, healthy kidney function, or kidney dysfunction.
-- **Image:** ![BUN DMN Table](bun.png)
+### 1. Creatinine DMN Table XML
+**Image:** ![Creatinine DMN Table](createnine.png)
 
-### 3. UACR (Urine Albumin-to-Creatinine Ratio) DMN Table
-The **UACR DMN Table** evaluates the albumin-to-creatinine ratio in urine. It classifies results as normal, early kidney damage, or advanced kidney disease.
-- **Image:** ![UACR DMN Table](uacr.png)
+- **Defines input as `creatinine_level` and `age_group`**.
+- **Decision logic determines kidney risk categories** based on thresholds.
+- **Example XML Code:**
+```xml
+<decision id="CreatinineDecision" name="Creatinine Evaluation">
+  <decisionTable>
+    <input id="input1" label="Creatinine Level"/>
+    <input id="input2" label="Age Group"/>
+    <output id="output1" label="Risk Category"/>
+    <rule>
+      <inputEntry> ... </inputEntry>
+      <outputEntry> ... </outputEntry>
+    </rule>
+  </decisionTable>
+</decision>
+```
 
-### 4. Electrolytes (Potassium, Sodium) DMN Table
-The **Electrolytes DMN Table** checks potassium and sodium levels to determine if they are within normal ranges, aiding in electrolyte balance assessment.
-- **Image:** ![Electrolytes DMN Table](electrolytes.png)
+### 2. BUN (Blood Urea Nitrogen) DMN Table XML
+**Image:** ![BUN DMN Table](bun.png)
 
-### 5. GFR (Glomerular Filtration Rate) DMN Table
-The **GFR DMN Table** calculates the glomerular filtration rate based on input parameters. It classifies kidney function into different stages, helping to diagnose chronic kidney disease.
-- **Image:** ![GFR DMN Table](gfr.png)
+- **Takes `BUN_level` as input**.
+- **Classifies results into dietary factors and kidney function status**.
+- **Example XML Code:**
+```xml
+<decision id="BUNDecision" name="BUN Evaluation">
+  <decisionTable>
+    <input id="input1" label="BUN Level"/>
+    <output id="output1" label="BUN Classification"/>
+    <rule>
+      <inputEntry> ... </inputEntry>
+      <outputEntry> ... </outputEntry>
+    </rule>
+  </decisionTable>
+</decision>
+```
+
+### 3. UACR (Urine Albumin-to-Creatinine Ratio) DMN Table XML
+**Image:** ![UACR DMN Table](uacr.png)
+
+- **Uses `UACR_value` as input**.
+- **Determines kidney disease progression**.
+- **Example XML Code:**
+```xml
+<decision id="UACRDecision" name="UACR Evaluation">
+  <decisionTable>
+    <input id="input1" label="UACR Value"/>
+    <output id="output1" label="Disease Stage"/>
+    <rule>
+      <inputEntry> ... </inputEntry>
+      <outputEntry> ... </outputEntry>
+    </rule>
+  </decisionTable>
+</decision>
+```
+
+### 4. Electrolytes (Potassium, Sodium) DMN Table XML
+**Image:** ![Electrolytes DMN Table](electrolytes.png)
+
+- **Takes `potassium_level` and `sodium_level` as inputs**.
+- **Checks for normal or abnormal electrolyte levels**.
+- **Example XML Code:**
+```xml
+<decision id="ElectrolytesDecision" name="Electrolytes Evaluation">
+  <decisionTable>
+    <input id="input1" label="Potassium Level"/>
+    <input id="input2" label="Sodium Level"/>
+    <output id="output1" label="Electrolyte Status"/>
+    <rule>
+      <inputEntry> ... </inputEntry>
+      <outputEntry> ... </outputEntry>
+    </rule>
+  </decisionTable>
+</decision>
+```
+
+### 5. GFR (Glomerular Filtration Rate) DMN Table XML
+**Image:** ![GFR DMN Table](gfr.png)
+
+- **Uses `GFR_value` as input**.
+- **Classifies kidney function into stages**.
+- **Example XML Code:**
+```xml
+<decision id="GFRDecision" name="GFR Evaluation">
+  <decisionTable>
+    <input id="input1" label="GFR Value"/>
+    <output id="output1" label="Kidney Stage"/>
+    <rule>
+      <inputEntry> ... </inputEntry>
+      <outputEntry> ... </outputEntry>
+    </rule>
+  </decisionTable>
+</decision>
+```
 
 ## Deployment and Testing
 We successfully deployed a single DMN table in Camunda and tested it using Postman. Then, we deployed all individual DMN tables directly from Camunda Modeler to Cockpit and tested the results.
@@ -49,3 +134,4 @@ To fully automate the workflow, we planned the following integration steps:
 
 ## Conclusion
 By integrating Camunda DMN with external applications, we automated the kidney test evaluation process. This structured approach ensures accurate, standardized, and efficient decision-making in medical diagnostics.
+
