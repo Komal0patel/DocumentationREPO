@@ -1,6 +1,8 @@
 #INTERNSHIP DOCUMENTATION
 
 
+# Camunda DMN Project Documentation
+
 ## Introduction
 This documentation outlines my journey of learning and implementing Camunda for processing kidney test results and calculating kidney scores using DMN (Decision Model and Notation) tables. The project involves integrating Camunda with external applications to automate decision-making based on clinical guidelines.
 
@@ -20,12 +22,11 @@ After understanding DMN, I designed individual decision tables for each kidney t
 3. **GFR (Glomerular Filtration Rate)**
 4. **UACR (Urine Albumin-to-Creatinine Ratio)**
 5. **Electrolytes (Potassium, Sodium)**
-6. **Main DMN Table** to combine results and determine overall kidney health.
 
-Each table classifies test results based on age and gender.
+For each test case, different DMN tables were created.
 
 ## Deployment and Testing
-I successfully deployed a single DMN table in Camunda and tested it using Postman. Then, I deployed the main DMN table (combining all linked tables) directly from Camunda Modeler to Cockpit and tested the results.
+I successfully deployed a single DMN table in Camunda and tested it using Postman. Then, I deployed all individual DMN tables directly from Camunda Modeler to Cockpit and tested the results.
 
 ## Integration with External Application
 To fully automate the workflow, I planned the following integration steps:
@@ -37,4 +38,3 @@ To fully automate the workflow, I planned the following integration steps:
 
 ## Conclusion
 By integrating Camunda DMN with external applications, I automated the kidney test evaluation process. This structured approach ensures accurate, standardized, and efficient decision-making in medical diagnostics.
-
