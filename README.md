@@ -1,5 +1,6 @@
 #INTERNSHIP DOCUMENTATION
 
+
 ## Introduction
 This documentation outlines my journey of learning and implementing Camunda for processing kidney test results and calculating kidney scores using DMN (Decision Model and Notation) tables. The project involves integrating Camunda with external applications to automate decision-making based on clinical guidelines.
 
@@ -16,24 +17,24 @@ I researched DMN and realized that I could define decision logic using tables, m
 After understanding DMN, I designed individual decision tables for each kidney test based on standard clinical guidelines:
 
 ### 1. Creatinine DMN Table
-This table evaluates creatinine levels based on age and gender to determine if they fall within normal, borderline, or abnormal ranges.
+The **Creatinine DMN Table** evaluates creatinine levels based on age and gender. It determines whether the levels are normal, borderline, or abnormal, aiding in kidney function assessment.
 - **Image:** ![Creatinine DMN Table](Screenshot%202025-03-12%20150141.png)
 
 ### 2. BUN (Blood Urea Nitrogen) DMN Table
-The BUN table checks urea nitrogen levels in the blood and classifies them based on standard thresholds.
+The **BUN DMN Table** assesses blood urea nitrogen levels. It classifies the results as normal, high, or critically high based on clinical guidelines.
 - **Image:** ![BUN DMN Table](Screenshot%202025-03-12%20150151.png)
 
-### 3. GFR (Glomerular Filtration Rate) DMN Table
-GFR is an important indicator of kidney function. This table calculates GFR based on input parameters and determines the stage of kidney function.
-- **Image:** ![GFR DMN Table](Screenshot%202025-03-12%20150201.png)
+### 3. UACR (Urine Albumin-to-Creatinine Ratio) DMN Table
+The **UACR DMN Table** evaluates the albumin-to-creatinine ratio in urine. It classifies results as normal, microalbuminuria, or macroalbuminuria to indicate possible kidney damage.
+- **Image:** ![UACR DMN Table](Screenshot%202025-03-12%20150201.png)
 
-### 4. UACR (Urine Albumin-to-Creatinine Ratio) DMN Table
-This table evaluates the albumin-to-creatinine ratio in urine to assess kidney damage and classify it into normal, microalbuminuria, or macroalbuminuria.
-- **Image:** ![UACR DMN Table](Screenshot%202025-03-12%20150213.png)
+### 4. Electrolytes (Potassium, Sodium) DMN Table
+The **Electrolytes DMN Table** checks potassium and sodium levels to determine if they are within normal ranges, aiding in electrolyte balance assessment.
+- **Image:** ![Electrolytes DMN Table](Screenshot%202025-03-12%20150213.png)
 
-### 5. Electrolytes (Potassium, Sodium) DMN Table
-Electrolyte balance is crucial for kidney function. This table checks potassium and sodium levels to determine if they are within normal ranges.
-- **Image:** ![Electrolytes DMN Table](Screenshot%202025-03-12%20150224.png)
+### 5. GFR (Glomerular Filtration Rate) DMN Table
+The **GFR DMN Table** calculates the glomerular filtration rate based on input parameters. It classifies kidney function into different stages, helping to diagnose chronic kidney disease.
+- **Image:** ![GFR DMN Table](Screenshot%202025-03-12%20150224.png)
 
 ## Deployment and Testing
 I successfully deployed a single DMN table in Camunda and tested it using Postman. Then, I deployed all individual DMN tables directly from Camunda Modeler to Cockpit and tested the results.
