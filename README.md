@@ -1,6 +1,5 @@
 #INTERNSHIP DOCUMENTATION
 
-
 ## Introduction
 This documentation outlines my journey of learning and implementing Camunda for processing kidney test results and calculating kidney scores using DMN (Decision Model and Notation) tables. The project involves integrating Camunda with external applications to automate decision-making based on clinical guidelines.
 
@@ -17,15 +16,15 @@ I researched DMN and realized that I could define decision logic using tables, m
 After understanding DMN, I designed individual decision tables for each kidney test based on standard clinical guidelines:
 
 ### 1. Creatinine DMN Table
-The **Creatinine DMN Table** evaluates creatinine levels based on age and gender. It determines whether the levels are normal, borderline, or abnormal, aiding in kidney function assessment.
+The **Creatinine DMN Table** evaluates creatinine levels and determines whether the levels are normal, mild risk, moderate risk, or severe risk, aiding in kidney function assessment.
 - **Image:** ![Creatinine DMN Table](createnine.png)
 
 ### 2. BUN (Blood Urea Nitrogen) DMN Table
-The **BUN DMN Table** assesses blood urea nitrogen levels. It classifies the results as normal, high, or critically high based on clinical guidelines.
+The **BUN DMN Table** assesses blood urea nitrogen levels. It classifies the results as low protein diet, healthy kidney function, or kidney dysfunction.
 - **Image:** ![BUN DMN Table](bun.png)
 
 ### 3. UACR (Urine Albumin-to-Creatinine Ratio) DMN Table
-The **UACR DMN Table** evaluates the albumin-to-creatinine ratio in urine. It classifies results as normal, microalbuminuria, or macroalbuminuria to indicate possible kidney damage.
+The **UACR DMN Table** evaluates the albumin-to-creatinine ratio in urine. It classifies results as normal, early kidney damage, or advanced kidney disease.
 - **Image:** ![UACR DMN Table](uacr.png)
 
 ### 4. Electrolytes (Potassium, Sodium) DMN Table
