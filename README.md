@@ -132,24 +132,24 @@ To fully automate the workflow, we planned the following integration steps:
 4. **Final Decision**: Camunda processes the data and returns a decision.
 5. **User Interaction**: The final decision is sent back to the user via the webpage.
 
-##Deploying DMN in Camunda
+## Deploying DMN in Camunda
 
-###What is Deployment?
+### What is Deployment?
 Deployment in Camunda Modeler makes a DMN table available for execution in the Camunda Engine, allowing it to be accessed via Cockpit, REST API, or external applications.
 
-###What Happens During Deployment?
-####1.Model Creation
+### What Happens During Deployment?
+#### 1.Model Creation
 
 You design a DMN table in Camunda Modeler.
 Define input variables (e.g., creatinine levels, age, gender) and output decisions (e.g., kidney health risk level).
 Save the file as a .dmn file.
 
-####2.Deployment Process
+#### 2.Deployment Process
 
 When you deploy the .dmn file from Camunda Modeler, it gets uploaded to the Camunda Engine (Cockpit or external engine via REST API).
 The DMN is now stored in Camunda's database and can be executed when a request is sent.
 
-####3.Execution Readiness
+#### 3.Execution Readiness
 
 Once deployed, the DMN table can be tested using:
 Postman API Calls (Camunda REST API)
