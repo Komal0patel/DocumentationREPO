@@ -1,0 +1,414 @@
+
+<!-- CREATININE XML CODE-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0u5msj4" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="Decision_0bpci3c" name="Creatinine DMN Table">
+    <decisionTable id="DecisionTable_1pqppm0" hitPolicy="FIRST">
+      <input id="Input_1" label="creatinine " camunda:inputVariable="creatinine">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="risk category" name="risk category" typeRef="string">
+        <outputValues id="UnaryTests_1s91w5v">
+          <text>"Normal","Mild Risk","Moderate Risk","Severe Risk"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0as7oi6" label="Scores" name="Scores" typeRef="integer" />
+      <rule id="DecisionRule_0b82a7x">
+        <inputEntry id="UnaryTests_0nqf4go">
+          <text>[0.7..1.2]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vz1tma">
+          <text>"Normal"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hre9cs">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1izekdd">
+        <inputEntry id="UnaryTests_1n8r9a5">
+          <text>[1.3..1.5]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rd25v8">
+          <text>"Mild Risk"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ncqq61">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_028gf3q">
+        <inputEntry id="UnaryTests_1jnackl">
+          <text>[1.6..2.0]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12kiqv6">
+          <text>"Moderate Risk"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1udg2gc">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1f6wz3g">
+        <inputEntry id="UnaryTests_1w6dox8">
+          <text>&gt; 2.0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xs3u3f">
+          <text>"Severe Risk"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ecyqd9">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00hruag">
+        <inputEntry id="UnaryTests_03gpvr9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_159rau8">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1nl30er">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bud786">
+        <inputEntry id="UnaryTests_14j0kyw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y7ya0d">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qmvbwt">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0bpci3c">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
+
+
+<!-- ELECTROLYTES XML CODE-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1n3cjf7" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.31.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="Decision_0oywdb5" name="Electrolytes">
+    <decisionTable id="DecisionTable_14mi1zi" hitPolicy="RULE ORDER">
+      <input id="Input_1" label="sodium" camunda:inputVariable="sodium">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1q3ktr1" label="potassium" camunda:inputVariable="potassium">
+        <inputExpression id="LiteralExpression_08kxiqq" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="risk category" name="risk category" typeRef="string" />
+      <output id="OutputClause_1lid8qh" label="score" name="score" typeRef="integer" />
+      <rule id="DecisionRule_0z3tsq0">
+        <inputEntry id="UnaryTests_0o4hlog">
+          <text>&lt; 135</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1igefhm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01l49pv">
+          <text>"low sodium level"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1273tuh">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v2b2k4">
+        <inputEntry id="UnaryTests_1hktv01">
+          <text>[135..145]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01xd0q6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qd757k">
+          <text>"normal sodium level"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1af6tn4">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wm79lg">
+        <inputEntry id="UnaryTests_1o9905p">
+          <text>&gt; 145</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04f703b">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_185nxx2">
+          <text>"high sodium level"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x4mzz0">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ke5akl">
+        <inputEntry id="UnaryTests_1rr5t4b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00tl0af">
+          <text>&lt; 3.5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12y8dzh">
+          <text>"low potassium"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14vlhx7">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wrce1p">
+        <inputEntry id="UnaryTests_1r2nuay">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sw8rnh">
+          <text>[3.5..5.0]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08lwzyt">
+          <text>"normal potassium range"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1vwgbzb">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b1xglq">
+        <inputEntry id="UnaryTests_017eizv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d4apep">
+          <text>&gt; 5.0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06rbr54">
+          <text>"high potassium"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zxhv5c">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0oywdb5">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
+
+
+<!-- UACR XML CODE-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_121zcrp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="Decision_1h0cvj7" name="UACR DMN Table">
+    <decisionTable id="DecisionTable_0qtm916">
+      <input id="Input_1" label="uacr" camunda:inputVariable="UACR">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="risk category" name="risk category" typeRef="string" />
+      <output id="OutputClause_1f76mih" label="score" name="score" typeRef="integer" />
+      <rule id="DecisionRule_08vfww1">
+        <inputEntry id="UnaryTests_01kyfdy">
+          <text>&lt; 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1klgz5h">
+          <text>"normal"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ih9f11">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x8abtc">
+        <inputEntry id="UnaryTests_0k7mnww">
+          <text>[30..300]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f1sksv">
+          <text>"early kidney damage"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1nrzl2o">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x6oiww">
+        <inputEntry id="UnaryTests_08aepza">
+          <text>&gt; 300</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q7zwc8">
+          <text>"advanced kidney disease"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1d4l1r6">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1h0cvj7">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
+
+<!-- GFR XML CODE-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_05kvbh3" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="Decision_1aazp67" name="GFR DMN Table">
+    <decisionTable id="DecisionTable_0ivfcwt">
+      <input id="Input_1" label="gfr" camunda:inputVariable="GFR">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="risk category" name="risk category" typeRef="string" />
+      <output id="OutputClause_0qlutcs" label="score" name="score" typeRef="integer" />
+      <rule id="DecisionRule_10h7uwx">
+        <inputEntry id="UnaryTests_1r0udoe">
+          <text>&gt;= 90</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10zya5l">
+          <text>"Normal"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gw26ao">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11ux6tn">
+        <inputEntry id="UnaryTests_1o56hcx">
+          <text>[60..89]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fjo30o">
+          <text>"stage 1 Chronic kidney disease"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00kmo5i">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19vj0ol">
+        <inputEntry id="UnaryTests_1dff4i5">
+          <text>[45..59]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w37fjf">
+          <text>"stage 2 chronic kidney disease"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0soqasr">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03j0xtq">
+        <inputEntry id="UnaryTests_1pn2tix">
+          <text>[30..44]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_058qx30">
+          <text>"stage 3 chronic kidney disease"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_088xtlk">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uz597f">
+        <inputEntry id="UnaryTests_0p29y9t">
+          <text>[15..29]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1if9qc1">
+          <text>"stage 4 chronic kidney disease"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_154jvvk">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1380npe">
+        <inputEntry id="UnaryTests_0bogpvb">
+          <text>&lt; 15</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xzejto">
+          <text>"stage 5 chronic kidney disease, kidney failure"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14n7lu8">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1aazp67">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
+
+
+<!-- BUN XML CODE-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1dy4ukn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="Decision_01t35it" name="BUN DMN Table">
+    <decisionTable id="DecisionTable_0cc8h4h">
+      <input id="Input_1" label="bun" biodi:width="192" camunda:inputVariable="bun">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="risk category" name="risk category" typeRef="string" />
+      <output id="OutputClause_0dehhn6" label="score" name="score" typeRef="integer" />
+      <rule id="DecisionRule_160tmga">
+        <inputEntry id="UnaryTests_1g3hqn0">
+          <text>&lt; 7</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xff10f">
+          <text>"low protein diet"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ea2vy8">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01a70xa">
+        <inputEntry id="UnaryTests_0xxi3p6">
+          <text>[7..20]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_134xtw4">
+          <text>"healthy kidney function"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kypgkn">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jws8g2">
+        <inputEntry id="UnaryTests_0g7f5hn">
+          <text>&gt; 20</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dfykir">
+          <text>"kidney dysfunction"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0v524ao">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_01t35it">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
