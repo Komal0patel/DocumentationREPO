@@ -121,17 +121,6 @@ Below is an explanation of the key XML elements for each kidney test DMN table:
 </decision>
 ```
 
-## Deployment and Testing
-We successfully deployed a single DMN table in Camunda and tested it using Postman. Then, we deployed all individual DMN tables directly from Camunda Modeler to Cockpit and tested the results.
-
-## Integration with External Application
-To fully automate the workflow, we planned the following integration steps:
-1. **Data Extraction**: A user uploads kidney test results in PDF or image format.
-2. **Processing**: A Java program extracts relevant test data.
-3. **Decision Making**: The extracted data is sent to Camunda DMN tables via REST API.
-4. **Final Decision**: Camunda processes the data and returns a decision.
-5. **User Interaction**: The final decision is sent back to the user via the webpage.
-
 ## Deploying DMN in Camunda
 
 ### What is Deployment?
