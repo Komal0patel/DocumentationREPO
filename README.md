@@ -147,17 +147,17 @@ External Applications (Python, Java, etc.)
 #####Testing of camunda table results via Postman
 Steps of deploying and testing
 1. After creating the table in Camunda Modeler, Run the Camunda server by running the start.bat file and the server will start running.
-    **Image:** ![Camunda Engine]()
+    **Image:** ![Camunda Engine](CamundaEngine.png)
 
 2. After successful run of Camunda Engine, now deploy the table from Camunda Modeler.
-   **Image:** ![Camunda Table deployment]()
+   **Image:** ![Camunda Table deployment](DeployingTable.png,DeployedTable.png)
 
 3. As soon as you deploy, the sucessful message will pop up and will give you the option to directly open the camunda cockpit.
-     **Image:** ![Camunda Cockpit]()
+     **Image:** ![Camunda Cockpit](CockPit.png)
 
 4. The camunda table will be present in the Camunda Cockpit, with the Decision key, which will be used to test in the postman app
-     **Image:** ![Camunda Table with Decision KEY]()
+     **Image:** ![Camunda Table with Decision KEY](CamundaTableID.png)
 
-5. Now After successful deployment, the camunda table is ready for testing process using postman
+6. Now After successful deployment, the camunda table is ready for testing process using postman
    **Image:** ![Postman Testing]()
 
