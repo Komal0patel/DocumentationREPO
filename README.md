@@ -160,5 +160,5 @@ Steps of deploying and testing
      **Image:** ![Camunda Table with Decision KEY](CamundaTableID.png)
 
 6. Now After successful deployment, the camunda table is ready for testing process using postman
-   **Image:** ![Postman Testing](output.png)
+   **Image:** ![Postman Testing](ouput.png)
 
