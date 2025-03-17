@@ -155,3 +155,119 @@ Provide the path of the file when prompted.
 This script automates the extraction of medical test results from various file formats, making data processing more efficient.
 
 
+
+
+
+
+# Kidney Test Results Extraction - Java Code Documentation
+
+## Overview
+
+This Java program processes different types of files containing kidney test results and extracts relevant data. It supports:
+
+- **Images (JPG, PNG, WEBP, etc.)** using OCR (Tesseract)
+- **PDF files** using Apache PDFBox
+- **Excel files (XLSX, XLS)** using Apache POI
+- **CSV files** using OpenCSV
+
+The extracted results are printed to the console or stored in a CSV file.
+
+## Dependencies
+
+Ensure the following libraries are included in your project:
+
+- `org.apache.poi.ss.usermodel.*` (for Excel processing)
+- `net.sourceforge.tess4j.Tesseract` (for OCR image processing)
+- `com.opencsv.CSVWriter` (for CSV processing)
+- `org.apache.pdfbox.pdmodel.PDDocument` (for PDF processing)
+
+## Code Breakdown
+
+### 1. **Main Method**
+
+- Prompts the user to enter a file path.
+- Identifies the file type based on the extension.
+- Calls the appropriate method to extract data based on the file type.
+- Displays the extracted test results.
+
+### 2. **Extracting Text from Images (OCR)**
+
+```java
+public static String extractTextFromImage(String imagePath)
+```
+
+- Uses the Tesseract OCR engine to extract text from images.
+- Converts extracted text to lowercase.
+
+### 3. **Extracting Test Results from OCR Text**
+
+```java
+public static void extractTestResults(String text)
+```
+
+- Uses regex to identify test names and results.
+- Saves the extracted results into a CSV file (`test_results.csv`).
+
+### 4. **Extracting Text from PDF**
+
+```java
+private static String extractTextFromPDF(String filePath)
+```
+
+- Uses Apache PDFBox to extract text from a given PDF file.
+- Converts text to lowercase.
+
+### 5. **Extracting Kidney Test Values from PDF Text**
+
+```java
+public static Map<String, String> extractTestValues(String text)
+```
+
+- Uses regex to match test names and values.
+- Filters out unwanted ratio values.
+- Returns a `Map<String, String>` of test names and their corresponding values.
+
+### 6. **Extracting Data from Excel Files**
+
+```java
+public static Map<String, String> extractFromExcel(String filePath)
+```
+
+- Reads an Excel file using Apache POI.
+- Identifies relevant test names in the spreadsheet and extracts their values.
+
+### 7. **Helper Method to Get Next Value in Excel**
+
+```java
+private static String getNextValue(Row row, int columnIndex)
+```
+
+- Extracts numerical or string values from the next cell in the row.
+
+### 8. **Extracting Data from CSV Files**
+
+```java
+public static Map<String, String> extractFromCSV(String filePath)
+```
+
+- Reads a CSV file.
+- Identifies kidney test names and extracts their corresponding values.
+
+## Output
+
+- If valid test results are found, they are displayed in the console.
+- If processing an image, the results are stored in `test_results.csv`.
+- If an unsupported file type is provided, an error message is displayed.
+
+## Future Enhancements
+
+- **Support for JSON files** for better integration with APIs.
+- **GUI Interface** for easier user interaction.
+- **Database Integration** to store results for future analysis.
+
+## Conclusion
+
+This Java program efficiently extracts kidney test results from various file formats, allowing seamless processing of medical reports. The extracted data can be used for further analysis, integration with decision-making engines, or visualization in a frontend application.
+
+
+
