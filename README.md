@@ -144,7 +144,7 @@ Once deployed, the DMN table can be tested using:
 Postman API Calls (Camunda REST API)
 External Applications (Python, Java, etc.)
 
-#####Testing of camunda table results via Postman
+##### Testing of camunda table results via Postman
 Steps of deploying and testing
 1. After creating the table in Camunda Modeler, Run the Camunda server by running the start.bat file and the server will start running.
     **Image:** ![Camunda Engine](CamundaEngine.png)
@@ -161,4 +161,15 @@ Steps of deploying and testing
 
 6. Now After successful deployment, the camunda table is ready for testing process using postman
    **Image:** ![Postman Testing](ouput.png)
+
+
+    ### Breaking Down the API Endpoint
+
+| Part of the URL | Explanation |
+| -------------- | ----------- |
+| `http://localhost:8080` | This is the base URL. It means that Camunda is running locally on port `8080`. |
+| `/engine-rest/` | This is the **REST API path** for interacting with the Camunda engine. |
+| `/decision-definition/` | Specifies that we are interacting with a **decision table** (DMN). |
+| `/key/Decision_0bpci3c/` | Here, `Decision_0bpci3c` is the **Decision Key** for the DMN table. |
+| `/evaluate` | This tells Camunda to **execute (evaluate)** the decision table based on the input data. |
 
