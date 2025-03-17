@@ -130,17 +130,34 @@ Deployment in Camunda Modeler makes a DMN table available for execution in the C
 #### 1.Model Creation
 
 You design a DMN table in Camunda Modeler.
-Define input variables (e.g., creatinine levels, age, gender) and output decisions (e.g., kidney health risk level).
+Define input variables (e.g., creatinine levels) and output decisions (e.g., kidney health risk level).
 Save the file as a .dmn file.
 
 #### 2.Deployment Process
 
-When you deploy the .dmn file from Camunda Modeler, it gets uploaded to the Camunda Engine (Cockpit or external engine via REST API).
+When you deploy the .dmn file from Camunda Modeler(remember, before deploying your camunda table from modeler, you have to make sure the camunda server is  running in the background), it gets uploaded to the Camunda Engine (Cockpit or external engine via REST API).
 The DMN is now stored in Camunda's database and can be executed when a request is sent.
 
 #### 3.Execution Readiness
 
 Once deployed, the DMN table can be tested using:
 Postman API Calls (Camunda REST API)
-Camunda Cockpit (Admin Panel)
 External Applications (Python, Java, etc.)
+
+#####Testing of camunda table results via Postman
+Steps of deploying and testing
+1. After creating the table in Camunda Modeler, Run the Camunda server by running the start.bat file and the server will start running.
+    **Image:** ![Camunda Engine]()
+
+2. After successful run of Camunda Engine, now deploy the table from Camunda Modeler.
+   **Image:** ![Camunda Table deployment]()
+
+3. As soon as you deploy, the sucessful message will pop up and will give you the option to directly open the camunda cockpit.
+     **Image:** ![Camunda Cockpit]()
+
+4. The camunda table will be present in the Camunda Cockpit, with the Decision key, which will be used to test in the postman app
+     **Image:** ![Camunda Table with Decision KEY]()
+
+5. Now After successful deployment, the camunda table is ready for testing process using postman
+   **Image:** ![Postman Testing]()
+
