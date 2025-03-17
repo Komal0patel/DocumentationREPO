@@ -151,11 +151,12 @@ Steps of deploying and testing
 
 2. After successful run of Camunda Engine, now deploy the table from Camunda Modeler.
    **Image:** ![Camunda Table deployment](DeployingTable.png,DeployedTable.png)
+   ![Camunda Table deployment](DeployingTable.png) ![Successfully Deployed](DeployedTable.png)
 
-3. As soon as you deploy, the sucessful message will pop up and will give you the option to directly open the camunda cockpit.
+4. As soon as you deploy, the sucessful message will pop up and will give you the option to directly open the camunda cockpit.
      **Image:** ![Camunda Cockpit](CockPit.png)
 
-4. The camunda table will be present in the Camunda Cockpit, with the Decision key, which will be used to test in the postman app
+5. The camunda table will be present in the Camunda Cockpit, with the Decision key, which will be used to test in the postman app
      **Image:** ![Camunda Table with Decision KEY](CamundaTableID.png)
 
 6. Now After successful deployment, the camunda table is ready for testing process using postman
