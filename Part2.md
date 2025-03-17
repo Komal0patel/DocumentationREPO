@@ -152,6 +152,6 @@ Provide the path of the file when prompted.
 - The results are saved in `extracted_test_results.csv`.
 
 ## Conclusion
-This script automates the extraction of medical test results from various file formats, making data processing more efficient. Let me know if you have any questions! 🚀
+This script automates the extraction of medical test results from various file formats, making data processing more efficient.
 
 
